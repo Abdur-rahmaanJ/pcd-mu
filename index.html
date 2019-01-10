@@ -42,6 +42,11 @@
         border: 2px solid gray;
         margin-bottom: 15px;
       }
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 80%;  /* The width is the width of the web page */
+        margin-left: 10%;
+       }
   </style>
 </head>
 <body>
@@ -58,7 +63,7 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Processing_Logo_Clipped.svg/256px-Processing_Logo_Clipped.svg.png">
             </div>
             <div>
-                processing is
+                processing language
             </div>
         </div>
         <hr/>
@@ -67,7 +72,7 @@
                 <i class="fa fa-info"></i>
             </div>
             <div>
-                adhc
+                <span>PCD</span> stands for Processing Community Day,<br> an open day to get the community initiated to processing
             </div>
         </div>
         <hr/>
@@ -76,7 +81,8 @@
                 <i class="fa fa-clock-o"></i>
             </div>
             <div>
-                adhc
+                Jan 20, 10:00 AM to 04:00 AM<br>
+                Feb 10, 10:00 AM to 04:00 PM
             </div>
         </div>
         <hr/>
@@ -85,7 +91,36 @@
                 <i class="fa fa-map-marker"></i>
             </div>
             <div>
-                adhc
+                10, Rue des Condes<br>
+                Lagoonaville,<br>
+                Baie du Tombeau<br><br>
+                LAT: -20.128705<br>
+                LON: 57.500186<br>
+            </div>
+            <div style="text-align: center;">
+                <!--The div element for the map -->
+                <br><br>
+                <div id="map"></div>
+                <script>
+            // Initialize and add the map
+            function initMap() {
+              // The location of Uluru
+              var uluru = {lat: -20.128705, lng: 57.500186};
+              // The map, centered at Uluru
+              var map = new google.maps.Map(
+                  document.getElementById('map'), {zoom: 4, center: uluru});
+              // The marker, positioned at Uluru
+              var marker = new google.maps.Marker({position: uluru, map: map});
+            }
+                </script>
+                <!--Load the API from the specified URL
+                * The async attribute allows the browser to render the page while the API loads
+                * The key parameter will contain your own API key (which is not needed for this tutorial)
+                * The callback parameter executes the initMap() function
+                -->
+                <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiGr8BpLfvEHGrY75bbvHORrAmC_-M2WA&callback=initMap">
+                </script>
             </div>
         </div>
     </div>
